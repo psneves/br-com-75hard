@@ -17,8 +17,9 @@ export default async function handler(req, res) {
     // Access the form data
     const { name, lastname, email, phone } = formData;
       
-      await client.sql`CREATE TABLE IF NOT EXISTS Leads ( Name varchar(255), LastName varchar(255), Email varchar(255), Phone varchar(255) );`;
-      await client.sql`INSERT INTO Leads (Name, LastName, Email, Phone) VALUES (${name}, ${lastname}, ${email}, ${phone});`;
+      await client.sql`CREATE TABLE IF NOT EXISTS Leads ( Name varchar(255), LastName varchar(255), Email varchar(255), Phone varchar(255), CreatedAt timestamp );`;
+      await client.sql`INSERT INTO Leads (Name, LastName, Email, Phone, CreatedAt) VALUES (${name}, ${lastname}, ${email}, ${phone}, CURRENT_TIMESTAMP);`;
+
     } catch (error) {
       return response.status(500).json({ error });
     }
