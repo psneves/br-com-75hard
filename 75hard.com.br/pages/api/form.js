@@ -21,8 +21,7 @@ export default function handler(req, res) {
 
     // Found the name.
     // Sends a HTTP success code
- 
-    return res.status(200).json({ data: `${name} ${lastname}` });
+    return res.status(200).json('OK');
   } else {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
