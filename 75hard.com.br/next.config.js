@@ -4,6 +4,15 @@ const nextConfig = {
       appDir: true,
     },
   }
-  
-  module.exports = nextConfig
+
+  module.exports = {
+    async rewrites() {
+      return [
+        {
+          source: '/',
+          destination: '/index.html',
+        },
+      ]
+    },
+  }
   
