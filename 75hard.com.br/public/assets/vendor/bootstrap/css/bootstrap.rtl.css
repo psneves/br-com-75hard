@@ -1335,6 +1335,11 @@ progress {
     width: 16.6666666667%;
   }
 
+  .col-lg-2-5 {
+    flex: 0 0 auto;
+    width: 20%;
+  }
+
   .col-lg-3 {
     flex: 0 0 auto;
     width: 25%;

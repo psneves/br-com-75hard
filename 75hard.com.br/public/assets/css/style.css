@@ -25,6 +25,7 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
+  font-feature-settings: 'lnum' 1;
 }
 
 /*--------------------------------------------------------------
@@ -579,6 +580,7 @@ section {
 
 .about .content .btn-learn-more {
   font-family: "Raleway", sans-serif;
+  font-feature-settings: 'lnum' 1;
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 1px;
@@ -625,6 +627,7 @@ section {
 .counts .count-box p {
   padding: 8px 0 0 0;
   font-family: "Raleway", sans-serif;
+  font-feature-settings: 'lnum' 1;
   font-weight: 600;
   font-size: 14px;
   color: #1e6ca6;
@@ -1027,6 +1030,7 @@ section {
 
 .cta .cta-btn {
   font-family: "Raleway", sans-serif;
+  font-feature-settings: 'lnum' 1;
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 1px;
@@ -1415,6 +1419,7 @@ section {
   font-size: 14px;
   font-weight: 400;
   font-family: "Raleway", sans-serif;
+  font-feature-settings: 'lnum' 1;
   font-weight: 600;
   transition: 0.3s;
   border: 2px solid #2487ce;
@@ -1761,6 +1766,7 @@ section {
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Raleway", sans-serif;
+  font-feature-settings: 'lnum' 1;
   color: #777777;
 }
 

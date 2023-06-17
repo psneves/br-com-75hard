@@ -19,8 +19,10 @@ export default function handler(req, res) {
       return res.status(400).json({ error: 'First or last name not found' });
     }
 
-    // Found the name.
-    // Sends a HTTP success code
+    console.log("Nome="+name.replace(/(\r\n|\n|\r)/gm, ""));
+    console.log("Sobrenome="+lastname.replace(/(\r\n|\n|\r)/gm, ""));
+    console.log("E-mail="+email.replace(/(\r\n|\n|\r)/gm, ""));
+    console.log("Telefone="+phone.replace(/(\r\n|\n|\r)/gm, ""));    
     return res.status(200).json('OK');
   } else {
     return res.status(405).json({ error: 'Method Not Allowed' });
