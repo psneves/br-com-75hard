@@ -1,28 +1,27 @@
-export default function handler(req, res) {
+import { db } from '@vercel/postgres';
+
+export default async function handler(req, res) {
   if (req.method === 'POST') {
+    try {
+    const client = await db.connect();  
     const formData = {};
 
     const regex = /name="([^"]+)"[\r\n\r\n]+([^"\n]+)[\r\n]+/g;
     let match;
     while ((match = regex.exec(req.body)) !== null) {
       const [, fieldName, fieldValue] = match;
-      formData[fieldName] = fieldValue;
+      //Save fieldValue removing breaklines
+      formData[fieldName] = fieldValue.replace(/(\r\n|\n|\r)/gm, "");    
     }
 
     // Access the form data
     const { name, lastname, email, phone } = formData;
-
-    // Guard clause checks for first and last name,
-    // and returns early if they are not found
-    if (!name || !lastname) {
-      // Sends a HTTP bad request error code
-      return res.status(400).json({ error: 'First or last name not found' });
+      
+      await client.sql`CREATE TABLE IF NOT EXISTS Leads ( Name varchar(255), LastName varchar(255), Email varchar(255), Phone varchar(255) );`;
+      await client.sql`INSERT INTO Leads (Name, LastName, Email, Phone) VALUES (${name}, ${lastname}, ${email}, ${phone});`;
+    } catch (error) {
+      return response.status(500).json({ error });
     }
-
-    console.log("Nome="+name.replace(/(\r\n|\n|\r)/gm, ""));
-    console.log("Sobrenome="+lastname.replace(/(\r\n|\n|\r)/gm, ""));
-    console.log("E-mail="+email.replace(/(\r\n|\n|\r)/gm, ""));
-    console.log("Telefone="+phone.replace(/(\r\n|\n|\r)/gm, ""));    
     return res.status(200).json('OK');
   } else {
     return res.status(405).json({ error: 'Method Not Allowed' });
