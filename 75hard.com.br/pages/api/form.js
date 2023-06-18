@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       await client.sql`INSERT INTO Leads (Name, LastName, Email, Phone, CreatedAt) VALUES (${name}, ${lastname}, ${email}, ${phone}, CURRENT_TIMESTAMP);`;
 
     } catch (error) {
-      return response.status(500).json({ error });
+      return res.status(500).json({ error });
     }
     return res.status(200).json('OK');
   } else {
