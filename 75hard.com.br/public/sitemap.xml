@@ -21,4 +21,14 @@
 		<lastmod>2023-06-10T06:31:16+00:00</lastmod>
 		<priority>1.00</priority>
 	</url>
+	<url>
+		<loc>https://75hard.com.br/aviso-legal.html</loc>
+		<lastmod>2023-06-10T06:31:16+00:00</lastmod>
+		<priority>0.30</priority>
+	</url>
+	<url>
+		<loc>https://75hard.com.br/politica-privacidade.html</loc>
+		<lastmod>2023-06-10T06:31:16+00:00</lastmod>
+		<priority>0.30</priority>
+	</url>
 </urlset>
